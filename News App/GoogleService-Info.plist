@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>694250141267-s9kgd3eao36meuavfshp2u6jtmbfn252.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.694250141267-s9kgd3eao36meuavfshp2u6jtmbfn252</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBUnmXDyJOwnH7RV83M7Zy8ps9P1xvjF0E</string>
+	<key>GCM_SENDER_ID</key>
+	<string>694250141267</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Don.News-App</string>
+	<key>PROJECT_ID</key>
+	<string>around-us-c105a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>around-us-c105a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:694250141267:ios:30d6ee640fc9979c</string>
+	<key>DATABASE_URL</key>
+	<string>https://around-us-c105a.firebaseio.com</string>
+</dict>
+</plist>
