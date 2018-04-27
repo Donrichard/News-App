@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+protocol ModalViewControllerDelegate
+{
+    func sendLocationFilter(locationFilter: String)
+    func sendCategoryFilter(categoryFilter: String)
+}

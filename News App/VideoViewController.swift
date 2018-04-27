@@ -7,29 +7,42 @@
 //
 
 import UIKit
+import CoreData
+import AVFoundation
+import AVKit
 
 class VideoViewController: UIViewController {
-
+    var video: Video?
+    @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var posterName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        posterName.text = video?.author
+        let pathData = video?.dataPath
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let documentsDirectory: URL = URL(fileURLWithPath: paths[0])
+        let dataPath = documentsDirectory.appendingPathComponent(pathData!)
+        print(dataPath.absoluteString)
+        let videoAsset = (AVAsset(url: dataPath))
+        let playerItem = AVPlayerItem(asset: videoAsset)
+        let player = AVPlayer(playerItem: playerItem)
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = self.view.bounds
+        self.view.layer.addSublayer(playerLayer)
+        player.play()
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentItem)
     }
-
+    
+    func playerDidFinishPlaying() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

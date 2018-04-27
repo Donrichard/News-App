@@ -9,10 +9,15 @@
 import UIKit
 
 class NewsTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var videoName: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var locationCategoryLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -20,5 +25,4 @@ class NewsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

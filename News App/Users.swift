@@ -6,4 +6,8 @@
 //  Copyright © 2017 Richard. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct Users{
+    var Users: [User]
+}

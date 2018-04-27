@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Logging {
+    static func show(msg text: String) {
+        print(text)
+    }
+}
