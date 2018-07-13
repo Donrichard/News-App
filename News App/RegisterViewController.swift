@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class RegisterViewController: Parent, UITextFieldDelegate, MFMailComposeViewControllerDelegate {
+class RegisterViewController: UIViewController, UITextFieldDelegate, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var fullnameTF: UITextField!
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
@@ -33,6 +33,7 @@ class RegisterViewController: Parent, UITextFieldDelegate, MFMailComposeViewCont
         } else {
             warning.text = ""
             createAlert(title: "Registration Successful", message: "Please check your email to verify the email")
+            let preference = Preferences()
             preference.setPreferenceUsername(username: usernameTF.text!)
             preference.setPreferencePassword(username: passwordTF.text!)
             fullnameTF.text = ""

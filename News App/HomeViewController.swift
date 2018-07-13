@@ -14,7 +14,7 @@ import AVFoundation
 import MobileCoreServices
 import NotificationCenter
 
-class HomeViewController: Parent, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ModalViewControllerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ModalViewControllerDelegate {
     
     var imgsChache: [UIImage?] = []
     
@@ -111,6 +111,51 @@ class HomeViewController: Parent, CLLocationManagerDelegate, UITableViewDataSour
         newsTable.reloadData()
     }
     
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func deleteVideo() {
+        let fetchRequest: NSFetchRequest<Video> = Video.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
+        do {
+            try getContext().execute(deleteRequest)
+        } catch {
+            print(error.localizedDescription)
+        }
+        videos.removeAll()
+    }
+    
+    func getContext() -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    func getThumbnail(sourceURL: NSString) -> UIImage
+    {
+        print(sourceURL)
+        let asset = AVURLAsset(url: NSURL(fileURLWithPath: sourceURL as String) as URL, options: nil)
+        print("asset: \(asset)")
+        let imgGenerator = AVAssetImageGenerator(asset: asset)
+        imgGenerator.appliesPreferredTrackTransform = true
+        print("generator: \(imgGenerator)")
+        do {
+            let cgImg = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
+            print("cgImg: \(cgImg)")
+            let uiImage = UIImage(cgImage: cgImg)
+            return uiImage
+        } catch let error as NSError {
+            print("yang lain")
+            print("error: \(error.localizedDescription)")
+            return UIImage(named: "Error")!
+        }
+    }
+}
+
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -143,37 +188,28 @@ class HomeViewController: Parent, CLLocationManagerDelegate, UITableViewDataSour
         let timestamp = videos[indexPath.row].value(forKeyPath: "timestamp") as! Date
         let location = videos[indexPath.row].value(forKeyPath: "location") as! String
         let category = videos[indexPath.row].value(forKeyPath: "category") as! String
-        let dataPath = videos[indexPath.row].value(forKeyPath: "dataPath") as! NSString
-        //let videoData = videos[indexPath.row].value(forKeyPath: "newsVideo") as! NSData
-        //let unarchivedDictionary = NSKeyedUnarchiver.unarchiveObject(with: infoDict as Data) as! [String : Any]
-        /*if let pickedVid: NSURL = (unarchivedDictionary[UIImagePickerControllerMediaURL] as? NSURL) {
-            let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-            let documentsDirectory: AnyObject = paths[0] as AnyObject
-            let videoPathTemp = documentsDirectory.appendingPathComponent("temp.mp4") as NSString
-        } else {
-            print("found nil NSURL")
-        }*/
-        
-        var thumbnail: UIImage!
+        let dataPath = videos[indexPath.row].value(forKeyPath: "dataPath") as! String
 
+        var thumbnail: UIImage!
+        
         if let thumb = imgsChache[indexPath.row] {
             thumbnail = thumb
         } else {
             let fileManager = FileManager.default
-            if fileManager.fileExists(atPath: dataPath as String){
-                thumbnail = Parent.getThumbnail(sourceURL: dataPath)
+            if fileManager.fileExists(atPath: dataPath){
+                thumbnail = UIImage().getThumbnailFrom(url: URL(string: dataPath)!)
             }else {
                 thumbnail = UIImage(named: "videoUnavailableIcon")
             }
         }
         cell.videoName.image = thumbnail
-
-//        if fileManager.fileExists(atPath: dataPath as String){
-//            cell.videoName.image = Parent.getThumbnail(sourceURL: dataPath)
-//        }else {
-//            cell.videoName.image = UIImage(named: "videoUnavailableIcon")
-//        }
-//        
+        
+        //        if fileManager.fileExists(atPath: dataPath as String){
+        //            cell.videoName.image = Parent.getThumbnail(sourceURL: dataPath)
+        //        }else {
+        //            cell.videoName.image = UIImage(named: "videoUnavailableIcon")
+        //        }
+        //
         cell.titleLabel.text = title
         cell.descriptionLabel.text = desc
         let newDate = Date()
@@ -181,66 +217,6 @@ class HomeViewController: Parent, CLLocationManagerDelegate, UITableViewDataSour
         cell.locationCategoryLabel.text = "\(String(describing: location)) / \(String(describing: category))"
         return cell
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func deleteVideo() {
-        let fetchRequest: NSFetchRequest<Video> = Video.fetchRequest()
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
-        do {
-            try getContext().execute(deleteRequest)
-        } catch {
-            print(error.localizedDescription)
-        }
-        videos.removeAll()
-    }
-    
-    func getContext() -> NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
-    }
 }
 
-extension Date {
-    /// Returns the amount of years from another date
-    func years(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.year], from: date, to: self).year ?? 0
-    }
-    /// Returns the amount of months from another date
-    func months(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.month], from: date, to: self).month ?? 0
-    }
-    /// Returns the amount of weeks from another date
-    func weeks(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.weekOfMonth], from: date, to: self).weekOfMonth ?? 0
-    }
-    /// Returns the amount of days from another date
-    func days(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.day], from: date, to: self).day ?? 0
-    }
-    /// Returns the amount of hours from another date
-    func hours(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.hour], from: date, to: self).hour ?? 0
-    }
-    /// Returns the amount of minutes from another date
-    func minutes(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.minute], from: date, to: self).minute ?? 0
-    }
-    /// Returns the amount of seconds from another date
-    func seconds(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
-    }
-     func offset(from date: Date) -> String {
-        if years(from: date)   > 0 { return "\(years(from: date))y"   }
-        if months(from: date)  > 0 { return "\(months(from: date))M"  }
-        if weeks(from: date)   > 0 { return "\(weeks(from: date))w"   }
-        if days(from: date)    > 0 { return "\(days(from: date))d"    }
-        if hours(from: date)   > 0 { return "\(hours(from: date))h"   }
-        if minutes(from: date) > 0 { return "\(minutes(from: date))m" }
-        if seconds(from: date) > 0 { return "\(seconds(from: date))s" }
-        return ""
-    }
-}
+

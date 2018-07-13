@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class LoginViewController: Parent, UITextFieldDelegate, GIDSignInUIDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
     @IBOutlet weak var warning: UILabel!
     @IBOutlet weak var UsernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
@@ -27,6 +27,8 @@ class LoginViewController: Parent, UITextFieldDelegate, GIDSignInUIDelegate {
         self.view.endEditing(true)
         verification()
     }
+    
+    let preference = Preferences()
     
     override func viewDidLoad() {
         super.viewDidLoad()

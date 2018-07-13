@@ -8,6 +8,6 @@
 
 import UIKit
 
-struct Users{
+struct Users {
     var Users: [User]
 }

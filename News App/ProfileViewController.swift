@@ -13,7 +13,7 @@ import CoreData
 import MobileCoreServices
 import NotificationCenter
 
-class ProfileViewController: Parent, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var profileBackground: UIView!
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var newsTable: UITableView!
@@ -56,6 +56,7 @@ class ProfileViewController: Parent, UITableViewDataSource, UITableViewDelegate,
     
     override func viewWillAppear(_ animated: Bool) {
         nameLabel.text = "Don Richard"
+        let preference = Preferences()
         usernameLabel.text = "@\(preference.getPreferenceUsername())"
         let container = coreDataController.persistentContainer.viewContext
         let fetchUser = NSFetchRequest<NSManagedObject> (entityName: "User")
@@ -108,10 +109,10 @@ class ProfileViewController: Parent, UITableViewDataSource, UITableViewDelegate,
         let timestamp = videos[indexPath.row].value(forKeyPath: "timestamp") as! Date
         let location = videos[indexPath.row].value(forKeyPath: "location") as! String
         let category = videos[indexPath.row].value(forKeyPath: "category") as! String
-        let dataPath = videos[indexPath.row].value(forKeyPath: "dataPath") as! NSString
+        let dataPath = videos[indexPath.row].value(forKeyPath: "dataPath") as! String
         let fileManager = FileManager.default
-        if fileManager.fileExists(atPath: dataPath as String){
-            cell.videoName.image = Parent.getThumbnail(sourceURL: dataPath)
+        if fileManager.fileExists(atPath: dataPath as String) {
+            cell.videoName.image = UIImage().getThumbnailFrom(url: URL(string: dataPath)!)
         }else {
             cell.videoName.image = UIImage(named: "videoUnavailableIcon")
         }

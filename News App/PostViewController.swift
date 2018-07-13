@@ -12,7 +12,7 @@ import AVFoundation
 import MobileCoreServices
 import CoreData
 
-class PostViewController: Parent, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var dataPath: NSString = ""
     var videoData = NSData()
     var users: [NSManagedObject] = []
@@ -96,7 +96,7 @@ class PostViewController: Parent, UITextFieldDelegate, UIPickerViewDelegate, UIP
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let author = preference.getPreferenceUsername()
+        let author = Preferences().getPreferenceUsername()
         print(author)
         if let pickedVideo:NSURL = (info[UIImagePickerControllerMediaURL] as? NSURL) {
             let selectorToCall = #selector(PostViewController.videoWasSavedSuccessfully(_:didFinishSavingWithError:context:))
@@ -121,7 +121,7 @@ class PostViewController: Parent, UITextFieldDelegate, UIPickerViewDelegate, UIP
             videoData.write(toFile: (dataPath as NSString) as String, atomically: false)
             
             self.dismiss(animated: true, completion: nil)
-            pickedImage.image = Parent.getThumbnail(sourceURL: dataPath)
+            pickedImage.image = UIImage().getThumbnailFrom(url: URL(string: String(dataPath))!)
         }
     }
     
@@ -142,6 +142,7 @@ class PostViewController: Parent, UITextFieldDelegate, UIPickerViewDelegate, UIP
         newVideo.setValue(category, forKeyPath: "category")
         let date = Date()
         newVideo.setValue(date, forKeyPath: "timestamp")
+        let preference = Preferences()
         newVideo.setValue(preference.getPreferenceUsername(), forKeyPath: "author")
         do {
             try container.save()
