@@ -32,8 +32,8 @@
 		796A3E0C1F2090FE006BFCE4 /* coreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796A3E0B1F2090FE006BFCE4 /* coreDataController.swift */; };
 		796A3E161F20A299006BFCE4 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796A3E151F20A299006BFCE4 /* PostViewController.swift */; };
 		797D178C1F4BF4A000F16983 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 797D178B1F4BF4A000F16983 /* GoogleService-Info.plist */; };
-		79A842EF20F920B400589726 /* Date Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A842EE20F920B400589726 /* Date Extensions.swift */; };
-		79A842F120F921F900589726 /* UIImage Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A842F020F921F900589726 /* UIImage Extensions.swift */; };
+		79A842EF20F920B400589726 /* Date Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A842EE20F920B400589726 /* Date Extension.swift */; };
+		79A842F120F921F900589726 /* UIImage Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A842F020F921F900589726 /* UIImage Extension.swift */; };
 		7F5654817D09012A54AFA63F /* Pods_News_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4118F77D7B337A56EEBF574C /* Pods_News_AppUITests.framework */; };
 		9233093324BC0E51C8A02291 /* Pods_News_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A6745F0C98C3785F5C8BC2 /* Pods_News_AppTests.framework */; };
 /* End PBXBuildFile section */
@@ -92,8 +92,8 @@
 		796A3E0B1F2090FE006BFCE4 /* coreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = coreDataController.swift; sourceTree = "<group>"; };
 		796A3E151F20A299006BFCE4 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		797D178B1F4BF4A000F16983 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		79A842EE20F920B400589726 /* Date Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Extensions.swift"; sourceTree = "<group>"; };
-		79A842F020F921F900589726 /* UIImage Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage Extensions.swift"; sourceTree = "<group>"; };
+		79A842EE20F920B400589726 /* Date Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Extension.swift"; sourceTree = "<group>"; };
+		79A842F020F921F900589726 /* UIImage Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage Extension.swift"; sourceTree = "<group>"; };
 		8EC04A471FE29D6950370E24 /* Pods-News AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-News AppTests/Pods-News AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		D17E6E67431EC5B419D84200 /* Pods-News App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News App.release.xcconfig"; path = "Pods/Target Support Files/Pods-News App/Pods-News App.release.xcconfig"; sourceTree = "<group>"; };
 		FE4368A8D9D3D7FCBBDC1346 /* Pods-News AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-News AppUITests/Pods-News AppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,16 +141,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		7910EC301F14C560005B66E3 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				790F27621F2860AF000E638F /* ModalViewControllerDelegate.swift */,
-				7910EC321F14C59C005B66E3 /* Preferences.swift */,
-				7910EC361F14CD69005B66E3 /* Logging.swift */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
 		793FBFAB1F0F226F003118EC = {
 			isa = PBXGroup;
 			children = (
@@ -176,22 +166,13 @@
 		793FBFB61F0F226F003118EC /* News App */ = {
 			isa = PBXGroup;
 			children = (
-				7910EC301F14C560005B66E3 /* Controller */,
 				793FBFB71F0F226F003118EC /* AppDelegate.swift */,
-				793FBFB91F0F226F003118EC /* LoginViewController.swift */,
-				793FC0241F0F7D07003118EC /* RegisterViewController.swift */,
-				7910EC661F16843A005B66E3 /* ForgetPasswordViewController.swift */,
-				793FC0261F0F7F1A003118EC /* HomeViewController.swift */,
-				79A842F020F921F900589726 /* UIImage Extensions.swift */,
-				79A842EE20F920B400589726 /* Date Extensions.swift */,
-				7910EBC71F147FDF005B66E3 /* FilterViewController.swift */,
-				796A3E151F20A299006BFCE4 /* PostViewController.swift */,
-				7910EC051F148F3A005B66E3 /* ProfileViewController.swift */,
-				7910EBC31F12AC50005B66E3 /* NewsTableViewCell.swift */,
+				79A8430020F929AC00589726 /* Background Job */,
+				79A842F920F927B300589726 /* Controller */,
+				79A842F820F9279500589726 /* View */,
+				79A842F720F926F500589726 /* Model */,
+				79A842F220F925E100589726 /* Utils */,
 				793FBFBB1F0F226F003118EC /* Main.storyboard */,
-				790F27601F279E89000E638F /* TabBarViewController.swift */,
-				7947B94D1F4ECA7E00A3F9A4 /* model */,
-				796A3E0B1F2090FE006BFCE4 /* coreDataController.swift */,
 				793FBFC11F0F226F003118EC /* Assets.xcassets */,
 				793FBFC31F0F226F003118EC /* LaunchScreen.storyboard */,
 				793FBFC61F0F226F003118EC /* Info.plist */,
@@ -219,15 +200,6 @@
 			path = "News AppUITests";
 			sourceTree = "<group>";
 		};
-		7947B94D1F4ECA7E00A3F9A4 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				7910EBBF1F1291EE005B66E3 /* News.swift */,
-				796A3DE91F1C8B0E006BFCE4 /* Users.swift */,
-			);
-			name = model;
-			sourceTree = "<group>";
-		};
 		796A3D5D1F17C050006BFCE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +209,114 @@
 				4118F77D7B337A56EEBF574C /* Pods_News_AppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79A842F220F925E100589726 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				79A842F320F925FD00589726 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		79A842F320F925FD00589726 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				79A842EE20F920B400589726 /* Date Extension.swift */,
+				79A842F020F921F900589726 /* UIImage Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		79A842F520F926AD00589726 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				7910EBC31F12AC50005B66E3 /* NewsTableViewCell.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		79A842F720F926F500589726 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7910EBBF1F1291EE005B66E3 /* News.swift */,
+				7910EC321F14C59C005B66E3 /* Preferences.swift */,
+				796A3DE91F1C8B0E006BFCE4 /* Users.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		79A842F820F9279500589726 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79A842FC20F928D500589726 /* Home */,
+				79A842FB20F9287B00589726 /* Login & Register */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		79A842F920F927B300589726 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		79A842FB20F9287B00589726 /* Login & Register */ = {
+			isa = PBXGroup;
+			children = (
+				7910EC661F16843A005B66E3 /* ForgetPasswordViewController.swift */,
+				793FBFB91F0F226F003118EC /* LoginViewController.swift */,
+				793FC0241F0F7D07003118EC /* RegisterViewController.swift */,
+			);
+			path = "Login & Register";
+			sourceTree = "<group>";
+		};
+		79A842FC20F928D500589726 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				793FC0261F0F7F1A003118EC /* HomeViewController.swift */,
+				790F27601F279E89000E638F /* TabBarViewController.swift */,
+				79A842FF20F9299400589726 /* Profile */,
+				79A842FE20F9298000589726 /* Post */,
+				79A842FD20F9292D00589726 /* Filter */,
+				79A842F520F926AD00589726 /* Feed */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		79A842FD20F9292D00589726 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				7910EBC71F147FDF005B66E3 /* FilterViewController.swift */,
+				790F27621F2860AF000E638F /* ModalViewControllerDelegate.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		79A842FE20F9298000589726 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				796A3E151F20A299006BFCE4 /* PostViewController.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		79A842FF20F9299400589726 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7910EC051F148F3A005B66E3 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		79A8430020F929AC00589726 /* Background Job */ = {
+			isa = PBXGroup;
+			children = (
+				796A3E0B1F2090FE006BFCE4 /* coreDataController.swift */,
+				7910EC361F14CD69005B66E3 /* Logging.swift */,
+			);
+			path = "Background Job";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -543,7 +623,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79A842F120F921F900589726 /* UIImage Extensions.swift in Sources */,
+				79A842F120F921F900589726 /* UIImage Extension.swift in Sources */,
 				7910EBC01F1291EE005B66E3 /* News.swift in Sources */,
 				7910EBC41F12AC50005B66E3 /* NewsTableViewCell.swift in Sources */,
 				7910EC331F14C59C005B66E3 /* Preferences.swift in Sources */,
@@ -556,7 +636,7 @@
 				796A3DEA1F1C8B0E006BFCE4 /* Users.swift in Sources */,
 				793FBFBA1F0F226F003118EC /* LoginViewController.swift in Sources */,
 				796A3E0C1F2090FE006BFCE4 /* coreDataController.swift in Sources */,
-				79A842EF20F920B400589726 /* Date Extensions.swift in Sources */,
+				79A842EF20F920B400589726 /* Date Extension.swift in Sources */,
 				790F27611F279E89000E638F /* TabBarViewController.swift in Sources */,
 				793FBFB81F0F226F003118EC /* AppDelegate.swift in Sources */,
 				793FBFC01F0F226F003118EC /* News_App.xcdatamodeld in Sources */,
