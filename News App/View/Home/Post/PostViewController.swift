@@ -70,7 +70,7 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     
     override func viewWillAppear(_ animated: Bool) {
         savebtn.layer.cornerRadius = 5.0
-        let container = coreDataController.persistentContainer.viewContext
+        let container = CoreDataController.persistentContainer.viewContext
         let fetchUser = NSFetchRequest<NSManagedObject> (entityName: "User")
         let fetchVideos = NSFetchRequest<NSManagedObject> (entityName: "Video")
         do {

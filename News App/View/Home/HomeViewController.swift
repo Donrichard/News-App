@@ -86,7 +86,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIImagePi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-        let container = coreDataController.persistentContainer.viewContext
+        let container = CoreDataController.persistentContainer.viewContext
         let fetchUser = NSFetchRequest<NSManagedObject> (entityName: "User")
         let fetchVideos = NSFetchRequest<NSManagedObject> (entityName: "Video")
         if filterLocation != "" && filterCategory != "" {

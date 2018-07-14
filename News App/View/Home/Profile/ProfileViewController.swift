@@ -58,7 +58,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         nameLabel.text = "Don Richard"
         let preference = Preferences()
         usernameLabel.text = "@\(preference.getPreferenceUsername())"
-        let container = coreDataController.persistentContainer.viewContext
+        let container = CoreDataController.persistentContainer.viewContext
         let fetchUser = NSFetchRequest<NSManagedObject> (entityName: "User")
         let fetchVideos = NSFetchRequest<NSManagedObject> (entityName: "Video")
         do {
