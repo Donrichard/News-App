@@ -119,14 +119,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.titleLabel.text = title
         cell.descriptionLabel.text = desc
         let newDate = Date()
-        cell.timestampLabel.text = newDate.offset(from: timestamp)
+        cell.timestampLabel.text = newDate.getBiggestTimeDifferencesUnit(from: timestamp)
         cell.locationCategoryLabel.text = "\(String(describing: location)) / \(String(describing: category))"
         return cell
-    }
-    
-    func getContext() -> NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

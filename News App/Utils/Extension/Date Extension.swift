@@ -37,7 +37,7 @@ extension Date {
         return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
     }
     
-    func offset(from date: Date) -> String {
+    func getBiggestTimeDifferencesUnit(from date: Date) -> String {
         if years(from: date)   > 0 { return "\(years(from: date))y"   }
         if months(from: date)  > 0 { return "\(months(from: date))m"  }
         if weeks(from: date)   > 0 { return "\(weeks(from: date))w"   }

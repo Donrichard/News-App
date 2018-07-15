@@ -119,19 +119,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UIImagePi
     }
     
     func deleteVideo() {
-        let fetchRequest: NSFetchRequest<Video> = Video.fetchRequest()
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
-        do {
-            try getContext().execute(deleteRequest)
-        } catch {
-            print(error.localizedDescription)
-        }
-        videos.removeAll()
-    }
-    
-    func getContext() -> NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
+        
     }
     
     func getThumbnail(sourceURL: NSString) -> UIImage
@@ -213,7 +201,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.titleLabel.text = title
         cell.descriptionLabel.text = desc
         let newDate = Date()
-        cell.timestampLabel.text = newDate.offset(from: timestamp)
+        cell.timestampLabel.text = newDate.getBiggestTimeDifferencesUnit(from: timestamp)
         cell.locationCategoryLabel.text = "\(String(describing: location)) / \(String(describing: category))"
         return cell
     }

@@ -127,8 +127,7 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     
     func addVideo() {
         print("masuk")
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        let container = appDelegate.persistentContainer.viewContext
+        let container = CoreDataController.getContext()
         let videoEntity = NSEntityDescription.entity(forEntityName: "Video", in: container)
         let newVideo = NSManagedObject(entity: videoEntity!, insertInto: container)
         let title = titleTF.text
