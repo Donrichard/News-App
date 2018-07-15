@@ -29,7 +29,6 @@
 		793FC0251F0F7D07003118EC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793FC0241F0F7D07003118EC /* RegisterViewController.swift */; };
 		793FC0271F0F7F1A003118EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793FC0261F0F7F1A003118EC /* HomeViewController.swift */; };
 		796A3D5F1F17C051006BFCE4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796A3D5E1F17C051006BFCE4 /* MobileCoreServices.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		796A3E0C1F2090FE006BFCE4 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796A3E0B1F2090FE006BFCE4 /* CoreDataController.swift */; };
 		796A3E161F20A299006BFCE4 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796A3E151F20A299006BFCE4 /* PostViewController.swift */; };
 		797D178C1F4BF4A000F16983 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 797D178B1F4BF4A000F16983 /* GoogleService-Info.plist */; };
 		79A842EF20F920B400589726 /* Date Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A842EE20F920B400589726 /* Date Extension.swift */; };
@@ -93,7 +92,6 @@
 		793FC0241F0F7D07003118EC /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		793FC0261F0F7F1A003118EC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		796A3D5E1F17C051006BFCE4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		796A3E0B1F2090FE006BFCE4 /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		796A3E151F20A299006BFCE4 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		797D178B1F4BF4A000F16983 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		79A842EE20F920B400589726 /* Date Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Extension.swift"; sourceTree = "<group>"; };
@@ -325,7 +323,6 @@
 		79A8430020F929AC00589726 /* Background Job */ = {
 			isa = PBXGroup;
 			children = (
-				796A3E0B1F2090FE006BFCE4 /* CoreDataController.swift */,
 				7910EC361F14CD69005B66E3 /* Logging.swift */,
 			);
 			path = "Background Job";
@@ -649,7 +646,6 @@
 				7910EBC81F147FDF005B66E3 /* FilterViewController.swift in Sources */,
 				793FC0271F0F7F1A003118EC /* HomeViewController.swift in Sources */,
 				793FBFBA1F0F226F003118EC /* LoginViewController.swift in Sources */,
-				796A3E0C1F2090FE006BFCE4 /* CoreDataController.swift in Sources */,
 				79A842EF20F920B400589726 /* Date Extension.swift in Sources */,
 				790F27611F279E89000E638F /* TabBarViewController.swift in Sources */,
 				793FBFB81F0F226F003118EC /* AppDelegate.swift in Sources */,
