@@ -19,6 +19,7 @@
 		7910EC671F16843A005B66E3 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7910EC661F16843A005B66E3 /* ForgetPasswordViewController.swift */; };
 		7922018B20F9F76300D73F5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7922018A20F9F76300D73F5D /* User.swift */; };
 		7922018D20FA5D3E00D73F5D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7922018C20FA5D3E00D73F5D /* Strings.swift */; };
+		7922019120FBAC3800D73F5D /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7922019020FBAC3800D73F5D /* CoreDataController.swift */; };
 		793FBFB81F0F226F003118EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793FBFB71F0F226F003118EC /* AppDelegate.swift */; };
 		793FBFBA1F0F226F003118EC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793FBFB91F0F226F003118EC /* LoginViewController.swift */; };
 		793FBFBD1F0F226F003118EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793FBFBB1F0F226F003118EC /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		7910EC661F16843A005B66E3 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		7922018A20F9F76300D73F5D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7922018C20FA5D3E00D73F5D /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		7922019020FBAC3800D73F5D /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		793FBFB41F0F226F003118EC /* News App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793FBFB71F0F226F003118EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793FBFB91F0F226F003118EC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				7910EC361F14CD69005B66E3 /* Logging.swift */,
+				7922019020FBAC3800D73F5D /* CoreDataController.swift */,
 			);
 			path = "Background Job";
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				796A3E161F20A299006BFCE4 /* PostViewController.swift in Sources */,
 				79A8430220F9CFC000589726 /* NewsController.swift in Sources */,
 				7910EC371F14CD69005B66E3 /* Logging.swift in Sources */,
+				7922019120FBAC3800D73F5D /* CoreDataController.swift in Sources */,
 				790F27631F2860AF000E638F /* ModalViewControllerDelegate.swift in Sources */,
 				7910EC061F148F3A005B66E3 /* ProfileViewController.swift in Sources */,
 				7910EBC81F147FDF005B66E3 /* FilterViewController.swift in Sources */,
